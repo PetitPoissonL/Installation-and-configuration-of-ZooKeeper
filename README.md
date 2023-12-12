@@ -15,7 +15,7 @@ Ensure the following prerequisites are met on all three servers:
 
 Perform the following steps on the server `hadoop102`:
 
-1. Create 'module' and 'software' folders under the '/opt' directory
+1. Create 'module' and 'software' folders under the `/opt` directory
 
 ```
 mkdir /opt/module
@@ -43,20 +43,48 @@ mv apache-zookeeper-3.5.7-bin/ zookeeper-3.5.7
 
 ## Step 3: Configure ZooKeeper
 1. Configure the server number:
-Create 'zkData' directory under the '/opt/module/zookeeper-3.5.7/' directory
+Create 'zkData' directory under the `/opt/module/zookeeper-3.5.7/` directory
 ```
 mkdir zkData
 ```
-2. Create a file named 'myid' in the '/opt/module/zookeeper-3.5.7/zkData' directory:
+
+2. Create a file named 'myid' in the `/opt/module/zookeeper-3.5.7/zkData` directory:
 ```
 vim myid
 ```
+
 3. Add the corresponding number for the server in the file (Note: No empty lines above or below, no spaces on the left or right):
 ```
 2
 ```
+
 4. Copy the configured ZooKeeper to other machines:
 ```
 xsync zookeeper-3.5.7
 ```
 And modify the content in the 'myid' file to '3' on `hadoop103` and '4' on `hadoop104`, respectively
+
+5. Configure the 'zoo.cfg' file:
+Rename 'zoo_sample.cfg' to 'zoo.cfg' in the `/opt/module/zookeeper-3.5.7/conf` directory
+```
+mv zoo_sample.cfg zoo.cfg
+```
+Open the 'zoo.cfg' file
+```
+vim zoo.cfg
+```
+Modify the data storage path configuration
+```
+dataDir=/opt/module/zookeeper-3.5.7/zkData
+```
+Add the following configuration:
+```
+#######################cluster##########################
+server.2=hadoop102:2888:3888
+server.3=hadoop103:2888:3888
+server.4=hadoop104:2888:3888
+```
+Synchronize the 'zoo.cfg' configuration file
+```
+xsync zoo.cfg
+```
