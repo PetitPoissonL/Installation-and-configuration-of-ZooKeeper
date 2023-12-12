@@ -88,3 +88,6 @@ Synchronize the 'zoo.cfg' configuration file
 ```
 xsync zoo.cfg
 ```
+
+## Step 4: ZooKeeper cluster start-stop script
+
