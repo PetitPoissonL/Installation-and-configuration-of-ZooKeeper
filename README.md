@@ -12,7 +12,7 @@ Ensure the following prerequisites are met on all three servers:
 
 ## Step 1: Download ZooKeeper
 
-Perform the following steps on each server (`hadoop102`, `hadoop103`, `hadoop104`):
+Perform the following steps on the server `hadoop102`:
 
 1. Create 'module' and 'software' folders under the '/opt' directory
 
@@ -34,4 +34,28 @@ Extract the downloaded tarball on each server:
 tar -zxvf apache-zookeeper-3.5.7-bin.tar.gz -C /opt/module/
 ```
 
+Rename 'apache-zookeeper-3.5.7-bin' to 'zookeeper-3.5.7':
+```
+cd /opt/module/
+mv apache-zookeeper-3.5.7-bin/ zookeeper-3.5.7
+```
+
 ## Step 3: Configure ZooKeeper
+1. Configure the server number:
+Create 'zkData' directory under the '/opt/module/zookeeper-3.5.7/' directory
+```
+mkdir zkData
+```
+2. Create a file named 'myid' in the '/opt/module/zookeeper-3.5.7/zkData' directory:
+```
+vim myid
+```
+3. Add the corresponding number for the server in the file (Note: No empty lines above or below, no spaces on the left or right):
+```
+2
+```
+4. Copy the configured ZooKeeper to other machines:
+```
+xsync zookeeper-3.5.7
+```
+And modify the content in the 'myid' file to '3' on `hadoop103` and '4' on `hadoop104`, respectively
