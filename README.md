@@ -1,4 +1,4 @@
-# Installation and configuration of ZooKeeper for the project [Spark real-time project](https://github.com/PetitPoissonL/Spark_Streaming_Real_Time)
+# Installation and configuration of ZooKeeper for [Spark real-time project](https://github.com/PetitPoissonL/Spark_Streaming_Real_Time)
 This guide provides detailed steps to install and configure Apache ZooKeeper on a cluster of three servers: `hadoop102`, `hadoop103`, and `hadoop104`. ZooKeeper is a high-performance coordination service for distributed applications.
 
 ## Prerequisites
@@ -30,6 +30,8 @@ wget https://archive.apache.org/dist/zookeeper/zookeeper-3.5.7/apache-zookeeper-
 ## Step 2: Extract the Archive
 
 Extract the downloaded tarball on each server:
-`tar -zxvf apache-zookeeper-3.5.7-bin.tar.gz -C /opt/module/`
+```
+tar -zxvf apache-zookeeper-3.5.7-bin.tar.gz -C /opt/module/
+```
 
 ## Step 3: Configure ZooKeeper
