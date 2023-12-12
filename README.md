@@ -7,7 +7,7 @@ Ensure the following prerequisites are met on all three servers:
 
 - Linux-based environment (CentOS 7.5)
 - Java JDK installed (version 1.8.0_212)
-- Cluster distribution script [xsync]()
+- Cluster distribution script [xsync](https://github.com/PetitPoissonL/Cluster-distribution-script-xsync/tree/main)
 - Network connectivity between all three servers
 - Sufficient permissions to install and configure software
 
