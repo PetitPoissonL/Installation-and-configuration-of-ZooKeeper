@@ -48,23 +48,23 @@ Create 'zkData' directory under the `/opt/module/zookeeper-3.5.7/` directory
 mkdir zkData
 ```
 
-2. Create a file named 'myid' in the `/opt/module/zookeeper-3.5.7/zkData` directory:
+Create a file named 'myid' in the `/opt/module/zookeeper-3.5.7/zkData` directory:
 ```
 vim myid
 ```
 
-3. Add the corresponding number for the server in the file (Note: No empty lines above or below, no spaces on the left or right):
+Add the corresponding number for the server in the file (Note: No empty lines above or below, no spaces on the left or right):
 ```
 2
 ```
 
-4. Copy the configured ZooKeeper to other machines:
+2. Copy the configured ZooKeeper to other machines:
 ```
 xsync zookeeper-3.5.7
 ```
 And modify the content in the 'myid' file to '3' on `hadoop103` and '4' on `hadoop104`, respectively
 
-5. Configure the 'zoo.cfg' file:
+3. Configure the 'zoo.cfg' file:
 Rename 'zoo_sample.cfg' to 'zoo.cfg' in the `/opt/module/zookeeper-3.5.7/conf` directory
 ```
 mv zoo_sample.cfg zoo.cfg
